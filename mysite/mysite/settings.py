@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.storage',
 ]
 
 MIDDLEWARE = [
@@ -119,16 +120,27 @@ USE_TZ = True
 #STATIC_URL = '/static/'
 
 # Azure Blob に切り替える場合（コメントアウトして切替）
-DEFAULT_FILE_STORAGE = "storages.backends.azure_storage.AzureStorage"
-STATICFILES_STORAGE = "storages.backends.azure_storage.AzureStorage"
 AZURE_ACCOUNT_NAME = env("AZURE_ACCOUNT_NAME", default=None)
 AZURE_ACCOUNT_KEY  = env("AZURE_ACCOUNT_KEY", default=None)
-AZURE_CONTAINER = env("AZURE_CONTAINER", default="blob-yuzuki")
-STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/static/"
-MEDIA_URL  = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/media/"
+AZURE_CONTAINER_STATIC = env("AZURE_CONTAINER_STATIC", default=None)
+AZURE_CONTAINER_MEDIA  = env("AZURE_CONTAINER_MEDIA", default=None)
 
-# WhiteNoise を使う場合のストレージ
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# コンテナが設定されていれば Azure Storage を使用
+if AZURE_ACCOUNT_NAME and AZURE_ACCOUNT_KEY and AZURE_CONTAINER_STATIC and AZURE_CONTAINER_MEDIA:
+    STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER_STATIC}/"
+    MEDIA_URL  = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER_MEDIA}/"
+    STATICFILES_STORAGE = "mysite.storage_backends.AzureStaticStorage"
+    DEFAULT_FILE_STORAGE  = "mysite.storage_backends.AzureMediaStorage"
+else:
+    STATIC_URL = "/static/"
+    MEDIA_URL  = "/media/"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    DEFAULT_FILE_STORAGE  = "django.core.files.storage.FileSystemStorage"
+
+# collectstatic 用の出力先（ローカル検証用）
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
