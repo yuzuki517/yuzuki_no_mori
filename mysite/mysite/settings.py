@@ -154,4 +154,3 @@ LOGGING = {
 # --- その他の便利設定 ---
 # 管理画面の URL 等は必要に応じて変更
 ADMIN_URL = env("ADMIN_URL", default="admin/")
-
