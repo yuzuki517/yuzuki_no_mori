@@ -19,7 +19,6 @@ jobs:
       AZURE_ACCOUNT_KEY: ${{ secrets.AZURE_ACCOUNT_KEY }}
       AZURE_CONTAINER_STATIC: ${{ secrets.AZURE_CONTAINER_STATIC }}
       AZURE_CONTAINER_MEDIA: ${{ secrets.AZURE_CONTAINER_MEDIA }}
-      DATABASE_URL: ${{ secrets.DATABASE_URL }} # 必要なら
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -52,4 +51,5 @@ jobs:
         with:
           app-name: 'yuzuki-no-mori'        # App Service の名前に合わせて変更
           slot-name: 'Production'
-          package: '.'                      # リポジトリルートをデプロイ
+          package: '.'
+
