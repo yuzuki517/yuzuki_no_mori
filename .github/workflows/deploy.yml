@@ -34,9 +34,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run migrations
+        working-directory: ./mysite
         run: python manage.py migrate --noinput
 
       - name: Collect static files
+        working-directory: ./mysite
         run: python manage.py collectstatic --noinput
 
       - name: Login to Azure
@@ -52,4 +54,5 @@ jobs:
           app-name: 'yuzuki-no-mori'        # App Service の名前に合わせて変更
           slot-name: 'Production'
           package: '.'
+
 
