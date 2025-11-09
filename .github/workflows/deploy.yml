@@ -1,0 +1,55 @@
+name: CI/CD Deploy to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    env:
+      DJANGO_SETTINGS_MODULE: mysite.settings
+      # 必要なシークレットをリポジトリの Secrets に登録しておくこと
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DEBUG: 'False'
+      ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+      AZURE_ACCOUNT_NAME: ${{ secrets.AZURE_ACCOUNT_NAME }}
+      AZURE_ACCOUNT_KEY: ${{ secrets.AZURE_ACCOUNT_KEY }}
+      AZURE_CONTAINER_STATIC: ${{ secrets.AZURE_CONTAINER_STATIC }}
+      AZURE_CONTAINER_MEDIA: ${{ secrets.AZURE_CONTAINER_MEDIA }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }} # 必要なら
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run migrations
+        run: python manage.py migrate --noinput
+
+      - name: Collect static files
+        run: python manage.py collectstatic --noinput
+
+      - name: Login to Azure
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'yuzuki-no-mori'        # App Service の名前に合わせて変更
+          slot-name: 'Production'
+          package: '.'                      # リポジトリルートをデプロイ
