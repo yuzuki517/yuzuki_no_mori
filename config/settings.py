@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from storages.backends.azure_storage import AzureStorage
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "blog",
+    "storages",
 ]
 
 MIDDLEWARE = [
@@ -121,4 +123,12 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / "media"
+
+STATICFILES_STORAGE = "config.storage.AzureStaticStorage"
+DEFAULT_FILE_STORAGE = "config.storage.AzureMediaStorage"
+
+AZURE_ACCOUNT_NAME = os.getenv("AZURE_ACCOUNT_NAME")
+AZURE_ACCOUNT_KEY = os.getenv("AZURE_ACCOUNT_KEY")
+AZURE_CONTAINER_MEDIA = os.getenv("AZURE_CONTAINER_MEDIA")
+AZURE_CONTAINER_STATIC = os.getenv("AZURE_CONTAINER_STATIC")
 
