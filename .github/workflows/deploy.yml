@@ -15,6 +15,7 @@ jobs:
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
       DEBUG: 'False'
       ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+      ADMIN_URL: ${{ secrets.ADMIN_URL }}
       AZURE_ACCOUNT_NAME: ${{ secrets.AZURE_ACCOUNT_NAME }}
       AZURE_ACCOUNT_KEY: ${{ secrets.AZURE_ACCOUNT_KEY }}
       AZURE_CONTAINER_STATIC: ${{ secrets.AZURE_CONTAINER_STATIC }}
