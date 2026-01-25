@@ -39,11 +39,11 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Run migrations
-        working-directory: ./mysite
+        working-directory: .
         run: python manage.py migrate --noinput
 
       - name: Collect static files
-        working-directory: ./mysite
+        working-directory: .
         run: python manage.py collectstatic --noinput
         
       - name: Deploy to Azure Web App
