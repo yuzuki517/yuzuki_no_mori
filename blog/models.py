@@ -4,7 +4,7 @@ from django.db import models
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    content = models.TextField()
+    body = models.TextField() # Markdown
     image = models.ImageField(upload_to="posts/", blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

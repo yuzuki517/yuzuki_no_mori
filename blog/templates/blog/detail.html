@@ -1,0 +1,7 @@
+<h1>{{ post.title }}</h1>
+
+{% if post.image %}
+<img src="{{ post.image.url }}">
+{% endif %}
+
+<div>{{ post.body_html|safe }}</div>
