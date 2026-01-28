@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}記事一覧 | 柚木の杜{% endblock %}
+
+{% block content %}
+<h1 class="page-title">最新記事</h1>
+
+<div class="post-list">
+    {% for post in posts %}
+        {% include "blog/components/post_card.html" %}
+    {% empty %}
+        <p>記事がまだありません。</p>
+    {% endfor %}
+</div>
+{% endblock %}

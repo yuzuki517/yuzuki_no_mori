@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} | 柚木の杜{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+    <h1 class="post-title">{{ post.title }}</h1>
+    <p class="post-meta">{{ post.created_at|date:"Y-m-d" }}</p>
+
+    <div class="post-body">
+        {{ post.body|safe }}
+    </div>
+</article>
+{% endblock %}
