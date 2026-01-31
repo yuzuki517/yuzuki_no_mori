@@ -135,6 +135,11 @@ MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINE
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-STATICFILES_STORAGE = "config.storage.AzureStaticStorage"
-DEFAULT_FILE_STORAGE = "config.storage.AzureMediaStorage"
-
+STORAGES = {
+    "default": {
+        "BACKEND": "config.storage.AzureMediaStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "config.storage.AzureStaticStorage",
+    },
+}
