@@ -119,7 +119,7 @@ body {
 }
 
 .hero {
-    background: url("/static/images/hero.png") center / cover no-repeat;
+    background: url("static/images/hero.png") center / cover no-repeat;
     padding: 48px 16px;
 }
 
