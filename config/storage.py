@@ -1,14 +1,12 @@
+import os
 from storages.backends.azure_storage import AzureStorage
-from django.conf import settings
-
 
 class AzureStaticStorage(AzureStorage):
-    account_name = settings.AZURE_ACCOUNT_NAME
-    account_key = settings.AZURE_ACCOUNT_KEY
-    azure_container_name = settings.AZURE_CONTAINER_STATIC
-
+    account_name = os.getenv("AZURE_ACCOUNT_NAME")
+    account_key = os.getenv("AZURE_ACCOUNT_KEY")
+    azure_container_name = os.getenv("AZURE_CONTAINER_STATIC")
 
 class AzureMediaStorage(AzureStorage):
-    account_name = settings.AZURE_ACCOUNT_NAME
-    account_key = settings.AZURE_ACCOUNT_KEY
-    azure_container_name = settings.AZURE_CONTAINER_MEDIA
+    account_name = os.getenv("AZURE_ACCOUNT_NAME")
+    account_key = os.getenv("AZURE_ACCOUNT_KEY")
+    azure_container_name = os.getenv("AZURE_CONTAINER_MEDIA")
