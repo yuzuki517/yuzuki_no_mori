@@ -133,6 +133,8 @@ AZURE_CONTAINER_STATIC = os.getenv("AZURE_CONTAINER_STATIC")
 STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER_STATIC}/"
 MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER_MEDIA}/"
 
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_STORAGE = "config.storage.AzureStaticStorage"
 DEFAULT_FILE_STORAGE = "config.storage.AzureMediaStorage"
 
