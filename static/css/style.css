@@ -43,7 +43,6 @@ body {
     padding: 0 16px;
     display: grid;
     grid-template-columns: 1fr 280px;
-    background: #ffffff;
     border-radius: 6px;
     gap: 32px;
 }
