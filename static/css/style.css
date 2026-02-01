@@ -97,13 +97,26 @@ body {
     margin-bottom: 12px;
 }
 
-.profile img {
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-avatar {
     width: 96px;
     height: 96px;
     border-radius: 50%;
-    margin-bottom: 12px;
     overflow: hidden;
-    flex: 0 0 96px;
+    flex: 0 0 auto;
+    margin-bottom: 12px;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
 }
 
 .site-footer {
