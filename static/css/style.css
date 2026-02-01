@@ -148,3 +148,13 @@ body {
     font-size: 14px;
     color: #333;
 }
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        order: 1;
+    }
+}
