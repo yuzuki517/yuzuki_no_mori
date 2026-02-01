@@ -119,8 +119,8 @@ body {
 }
 
 .hero {
-    background: url("static/images/hero.png") center / cover no-repeat;
-    padding: 48px 16px;
+    background: center / cover no-repeat;
+    width: 100%;
 }
 
 .hero-inner {
