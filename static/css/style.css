@@ -1,32 +1,46 @@
+/* =================== Base / Global =================== */
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.75;
+
     background-image: url("https://stgyuzuki.blob.core.windows.net/yuzuki-static/images/serene_forest.png");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
-    color: #333;
-    font-size: 16px;
-    line-height: 1.75;
 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* ========================= Layout ========================= */
 .page-main {
     flex: 1;
     display: block;
 }
 
+.container {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 32px;
+    background: transparent;
+    border-radius: 6px;
+}
+
+/* ========================= Header / Navigation ========================= */
 .site-header {
-    border-bottom: 1px solid #e5e5e5;
-    background: rgba(255, 255, 255, 1);
-    backdrop-filter: blur(2px);
     position: sticky;
     top: 0;
     z-index: 100;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(2px);
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .header-inner {
@@ -51,6 +65,7 @@ body {
     color: #333;
 }
 
+/* ========================= Hamburger Menu ========================= */
 .hamburger {
     display: none;
     background: none;
@@ -66,15 +81,12 @@ body {
     margin: 5px 0;
 }
 
-.container {
-    max-width: 1100px;
-    margin: 32px auto;
-    padding: 0 16px;
-    display: grid;
-    background: transparent;
-    grid-template-columns: 1fr 280px;
-    border-radius: 6px;
-    gap: 32px;
+/* ========================= Main Content ========================= */
+.main-content {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border-radius: 4px;
+    padding: 24px;
 }
 
 .post-card {
@@ -89,8 +101,7 @@ body {
 
 .post-title {
     font-size: 18px;
-    margin: 0 0 8px;
-    margin-bottom: 4px;
+    margin: 0 0 4px;
 }
 
 .post-meta {
@@ -102,13 +113,7 @@ body {
     color: #555;
 }
 
-.main-content {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
-    padding: 24px;
-}
-
+/* ========================= Sidebar ========================= */
 .sidebar {
     display: flex;
     flex-direction: column;
@@ -127,6 +132,7 @@ body {
     margin-bottom: 12px;
 }
 
+/* ========================= Profile ========================= */
 .profile {
     display: flex;
     flex-direction: column;
@@ -138,7 +144,6 @@ body {
     height: 96px;
     border-radius: 50%;
     overflow: hidden;
-    flex: 0 0 auto;
     margin-bottom: 12px;
 }
 
@@ -149,10 +154,10 @@ body {
     object-fit: cover;
 }
 
+/* ========================= Footer ========================= */
 .site-footer {
     background: rgba(247, 236, 150, 1);
     border-top: 1px solid #333;
-    margin-top: 0;
 }
 
 .footer-inner {
@@ -164,6 +169,7 @@ body {
     color: #333;
 }
 
+/* ========================= Responsive ========================= */
 @media (max-width: 900px) {
     body {
         background-attachment: scroll;
@@ -172,10 +178,6 @@ body {
 
     .container {
         grid-template-columns: 1fr;
-    }
-
-    .sidebar {
-        order: 0;
     }
 
     .nav-menu {
