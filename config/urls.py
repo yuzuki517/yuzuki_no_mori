@@ -21,4 +21,6 @@ from django.conf import settings
 urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     path("", include("blog.urls")),
+    path("site-map/", TemplateView.as_view(template_name="site_map.html"), name="site_map"),
+    path("contact/", TemplateView.as_view(template_name="contact.html"), name="contact"),
 ]
