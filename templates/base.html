@@ -12,9 +12,7 @@
     {% include "components/header.html" %}
     <main class="page-main">
         <div class="container">
-            <div class="main-content">
-              {% block content %}{% endblock %}
-            </div>
+            {% block content %}{% endblock %}
 
             {% include "components/sidebar.html" %}
         </div>
