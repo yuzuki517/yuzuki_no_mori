@@ -4,8 +4,9 @@
 
         <nav class="nav-menu">
             <a href="/">Home</a>
-            <a href="/site-map/">Site Map</a>
-            <a href="/contact/">Contact</a>
+            <a href="{% url 'contact' %}">お問い合わせ</a>
+            <a href="{% url 'site_map' %}">サイトマップ</a>
+            <a href="{% url 'about' %}">このサイトについて</a>
         </nav>
 
         <button class="hamburger" aria-label="menu">
