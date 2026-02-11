@@ -1,18 +1,18 @@
 <header class="site-header">
     <div class="header-inner">
         <a class="site-title" href="/">柚木の杜</a>
-
-        <nav class="nav-menu">
-            <a href="/">Home</a>
-            <a href="{% url 'contact' %}">お問い合わせ</a>
-            <a href="{% url 'site_map' %}">サイトマップ</a>
-            <a href="{% url 'privacy' %}">プライバシーポリシー</a>
-        </nav>
-
-        <button class="hamburger" aria-label="menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="nav-area">
+            <nav class="nav-menu">
+              <a href="/">Home</a>
+              <a href="{% url 'contact' %}">お問い合わせ</a>
+              <a href="{% url 'site_map' %}">サイトマップ</a>
+              <a href="{% url 'privacy' %}">プライバシーポリシー</a>
+            </nav>
+            <button class="hamburger" aria-label="menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </div>
 </header>

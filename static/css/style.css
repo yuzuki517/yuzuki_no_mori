@@ -67,6 +67,12 @@ body {
     color: #333;
 }
 
+.nav-area {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
 .nav-menu a {
     margin-left: 24px;
     text-decoration: none;
