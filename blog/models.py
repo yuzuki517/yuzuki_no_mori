@@ -27,4 +27,4 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("blog:detail", args=[self.slug])
+        return reverse("blog:post_detail", args=[self.slug])
