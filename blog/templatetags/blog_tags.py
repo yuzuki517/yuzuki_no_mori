@@ -1,18 +1,17 @@
-# blog/templatetags/blog_tags.py
 from django import template
 from django.db.models import Count
 from ..models import Post, Category
+from taggit.models import Tag
 
 register = template.Library()
 
 @register.inclusion_tag('blog/tags/category_list.html', takes_context=True)
 def category_list(context):
-    qs = Category.objects.annotate(count=Count('posts')).order_by('-count')
-    return {'categories': qs, 'request': context.get('request')}
+    categories = Category.objects.annotate(count=Count('posts')).order_by('-count')
+    return {'categories': categories, 'request': context.get('request')}
 
 @register.inclusion_tag('blog/tags/tag_list.html', takes_context=True)
 def tag_list(context):
-    from taggit.models import Tag
     tags = Tag.objects.annotate(count=Count('taggit_taggeditem_items')).order_by('-count')[:50]
     return {'tags': tags, 'request': context.get('request')}
 
