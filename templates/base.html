@@ -9,14 +9,14 @@
 </head>
 
 <body>
-    {% include "components/header.html" %}
+    {#{% include "components/header.html" %}#}
     <main class="page-main">
         <div class="container">
             <div class="main-content">
               {% block content %}{% endblock %}
             </div>
 
-            {#  {% include "components/sidebar.html" %}  #}
+            {% include "components/sidebar.html" %}
         </div>
     </main>
 
