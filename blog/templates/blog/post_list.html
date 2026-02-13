@@ -6,7 +6,7 @@
 <h2 class="page-title">最新記事</h2>
 
 <div class="post-list">
-    {% for post in posts %}
+    {% for post in object_list %}
         {% include "blog/components/post_card.html" %}
     {% endfor %}
 </div>
