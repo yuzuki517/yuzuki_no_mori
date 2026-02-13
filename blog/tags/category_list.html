@@ -1,0 +1,10 @@
+<ul>
+  {% for cat in categories %}
+    <li>
+      <a href="{% url 'category_posts' cat.slug %}">{{ cat.name }}</a>
+      <span class="count">({{ cat.count }})</span>
+    </li>
+  {% empty %}
+    <li>カテゴリはありません</li>
+  {% endfor %}
+</ul>

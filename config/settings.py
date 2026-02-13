@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "blog",
     "pages",
     "storages",
+    "taggit",
 ]
 
 MIDDLEWARE = [

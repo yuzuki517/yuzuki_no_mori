@@ -1,0 +1,5 @@
+<ul>
+  {% for d in dates %}
+    <li><a href="{% url 'archive_posts' d.year d.month %}">{{ d|date:"Y年n月" }}</a></li>
+  {% endfor %}
+</ul>

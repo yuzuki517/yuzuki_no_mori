@@ -13,13 +13,30 @@
     </section>
 
     <section class="sidebar-box">
+        <h2>検索</h2>
+        <form action="{% url 'post_search' %}" method="get">
+            <input type="text" name="q" placeholder="キーワード検索" value="{{ request.GET.q|default:'' }}">
+            <button type="submit">検索</button>
+        </form>
+    </section>
+
+    <section class="sidebar-box">
         <h2>カテゴリ</h2>
-        <ul>
-            <li>Network</li>
-            <li>Server</li>
-            <li>Cloud</li>
-            <li>Linux</li>
-            <li>Programming</li>
-        </ul>
+        {% category_list %}
+    </section>
+
+    <section class="sidebar-box">
+        <h2>タグ</h2>
+        {% tag_list %}
+    </section>
+
+    <section class="sidebar-box">
+        <h2>アーカイブ</h2>
+        {% archives %}
+    </section>
+
+    <section class="sidebar-box">
+        <h2>最新記事</h2>
+        {% recent_posts %}
     </section>
 </aside>

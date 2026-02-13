@@ -1,0 +1,27 @@
+# blog/templatetags/blog_tags.py
+from django import template
+from django.db.models import Count
+from ..models import Post, Category
+
+register = template.Library()
+
+@register.inclusion_tag('blog/tags/category_list.html', takes_context=True)
+def category_list(context):
+    qs = Category.objects.annotate(count=Count('posts')).order_by('-count')
+    return {'categories': qs, 'request': context.get('request')}
+
+@register.inclusion_tag('blog/tags/tag_list.html', takes_context=True)
+def tag_list(context):
+    from taggit.models import Tag
+    tags = Tag.objects.annotate(count=Count('taggit_taggeditem_items')).order_by('-count')[:50]
+    return {'tags': tags, 'request': context.get('request')}
+
+@register.inclusion_tag('blog/tags/archives.html', takes_context=True)
+def archives(context):
+    dates = Post.objects.dates('created_at', 'month', order='DESC')
+    return {'dates': dates, 'request': context.get('request')}
+
+@register.inclusion_tag('blog/tags/recent_posts.html', takes_context=True)
+def recent_posts(context, num=5):
+    posts = Post.objects.order_by('-created_at')[:num]
+    return {'recent_posts': posts, 'request': context.get('request')}
