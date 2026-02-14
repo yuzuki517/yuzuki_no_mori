@@ -1,6 +1,6 @@
 <ul class="tag-cloud">
   {% for tag in tags %}
-    <li><a href="{% url 'tag_posts' tag.slug %}">{{ tag.name }}</a></li>
+    <li><a href="{% url 'blog:tag_posts' tag.slug %}">{{ tag.name }}</a></li>
   {% empty %}
     <li>タグはありません</li>
   {% endfor %}
