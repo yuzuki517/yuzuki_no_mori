@@ -1,6 +1,7 @@
 import markdown
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
 from .models import Post, Category
 from taggit.models import Tag
 
@@ -50,8 +51,9 @@ class ArchiveListView(PostListView):
 
 class PostSearchView(PostListView):
     def get_queryset(self):
-        q = self.request.GET.get("q", "")
+        q = self.request.GET.get("q", "").strip()
+        if not q:
+            return Post.objects.none()
         qs = super().get_queryset()
-        if q:
-            qs = qs.filter(title__icontains=q)
-        return qs
+        return qs.filter(Q(title__icontains=q) | Q(body__icontains=q)).order_by("-created_at")
+    
