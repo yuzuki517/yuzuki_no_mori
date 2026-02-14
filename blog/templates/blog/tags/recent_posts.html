@@ -1,0 +1,10 @@
+<ul class="recent-posts">
+  {% for post in recent_posts %}
+    <li>
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+      <small class="meta">{{ post.created_at|date:"Y-m-d" }}</small>
+    </li>
+  {% empty %}
+    <li>投稿はありません</li>
+  {% endfor %}
+</ul>
