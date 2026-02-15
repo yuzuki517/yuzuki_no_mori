@@ -8,6 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'created_at')
-    list_filter = ('category', 'created_at')
+    prepopulated_fields = {"slug": ("title",)}
+    list_display = ('title', 'category', 'created_at', 'updated_at')
+    list_filter = ('category', 'created_at', 'updated_at')
     search_fields = ('title', 'body')
