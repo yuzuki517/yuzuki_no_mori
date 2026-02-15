@@ -105,12 +105,12 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
-.post-list {
+/*.post-list {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
     border-radius: 6px;
     padding: 24px;
-}
+}*/
 
 .post-card {
     padding: 16px 0;
