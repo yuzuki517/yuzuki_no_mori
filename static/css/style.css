@@ -90,6 +90,11 @@ body {
 }
 
 /* ========================= Main Content ========================= */
+.content {
+    max-width: 720px;
+    width: 100%;
+}
+
 .page-content {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
@@ -222,7 +227,15 @@ body {
     }
 
     .container {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        width: 100%; 
     }
 
     .nav-menu {
