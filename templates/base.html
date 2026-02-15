@@ -11,12 +11,15 @@
 <body>
     {% include "components/header.html" %}
     <main class="page-main">
-        <div class="container">
-            <div class="main-content">
+        <div class="container layout">
+            <!-- 記事エリア -->
+            <div class="content">
               {% block content %}{% endblock %}
             </div>
-
-            {% include "components/sidebar.html" %}
+            <!-- サイドバー -->
+             <aside class="sidebar">
+                {% include "components/sidebar.html" %}
+            </aside>
         </div>
     </main>
 

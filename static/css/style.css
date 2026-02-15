@@ -10,16 +10,11 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* ========================= Layout ========================= */
 .page-main {
-    flex: 1;
-    display: block;
+    padding: 40px 0;
 }
 
 .page-section ul {
@@ -34,11 +29,10 @@ body {
     max-width: 1100px;
     margin: 32px auto;
     padding: 0 16px;
-    display: grid;
-    grid-template-columns: 1fr 280px;
+    display: flex;
+    align-items: flex-start;
     gap: 32px;
     background: transparent;
-    border-radius: 6px;
 }
 
 /* ========================= Header / Navigation ========================= */
@@ -96,16 +90,19 @@ body {
 }
 
 /* ========================= Main Content ========================= */
-.main-content {
+.post-list {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 24px;
 }
 
 .post-card {
-    border-bottom: 1px solid #ddd;
     padding: 16px 0;
+}
+
+.post-card:not(:last-child) {
+    border-bottom: 1px solid #ddd;
 }
 
 .post-card a {
@@ -127,17 +124,30 @@ body {
     color: #555;
 }
 
+.pagination {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.pagination a {
+    margin: 0 8px;
+    text-decoration: none;
+    color: #333;
+}
+
 /* ========================= Sidebar ========================= */
 .sidebar {
+    width: 280px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+    flex-shrink: 0;
 }
 
 .sidebar-box {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 16px;
 }
 

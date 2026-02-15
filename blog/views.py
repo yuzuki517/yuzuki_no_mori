@@ -17,6 +17,7 @@ def post_detail(request, slug):
 class PostListView(ListView):
     model = Post
     template_name = "blog/post_list.html"
+    context_object_name = "posts"
     paginate_by = 10
     queryset = Post.objects.order_by("-created_at")
 
