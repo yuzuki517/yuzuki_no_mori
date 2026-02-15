@@ -91,6 +91,7 @@ body {
 
 /* ========================= Main Content ========================= */
 .content {
+    background: rgba(255, 255, 255, 0.8);
     max-width: 720px;
     width: 100%;
 }
