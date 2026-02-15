@@ -91,8 +91,13 @@ body {
 
 /* ========================= Main Content ========================= */
 .content {
-    background: rgba(255, 255, 255, 0.8);
+    max-width: 720px;
     width: 100%;
+}
+
+.content-inner {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
     border-radius: 6px;
     padding: 24px;
 }
