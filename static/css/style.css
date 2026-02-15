@@ -102,6 +102,13 @@ body {
     padding: 24px;
 }
 
+.post-list {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border-radius: 6px;
+    padding: 24px;
+}
+
 .list-title {
     font-size: 1.2rem;
     margin-bottom: 16px;
