@@ -1,42 +1,41 @@
 {% load static %}
 {% load blog_tags %}
 
-<aside class="sidebar">
-    <section class="sidebar-box profile">
-        <div class="profile-avatar">
-            <img src="{% static 'images/profile_icon.png' %}" alt="プロフィール">
-        </div>
-        <h2>このサイトについて</h2>
-        <p>
-            技術メモや日々の雑記。
-            気ままに趣味の記事や成果物も紹介する。
-        </p>
-    </section>
 
-    <section class="sidebar-box">
-        <form action="{% url 'blog:post_search' %}" method="get">
-            <input type="text" name="q" placeholder="キーワード検索" value="{{ request.GET.q|default:'' }}">
-            <button type="submit">検索</button>
-        </form>
-    </section>
+<section class="sidebar-box profile">
+    <div class="profile-avatar">
+        <img src="{% static 'images/profile_icon.png' %}" alt="プロフィール">
+    </div>
+    <h2>このサイトについて</h2>
+    <p>
+        技術メモや日々の雑記。
+        気ままに趣味の記事や成果物も紹介する。
+    </p>
+</section>
 
-    <section class="sidebar-box">
-        <h2>カテゴリ</h2>
-        {% category_list %}
-    </section>
+<section class="sidebar-box">
+    <form action="{% url 'blog:post_search' %}" method="get">
+        <input type="text" name="q" placeholder="キーワード検索" value="{{ request.GET.q|default:'' }}">
+        <button type="submit">検索</button>
+    </form>
+</section>
 
-    <section class="sidebar-box">
-        <h2>タグ</h2>
-        {% tag_list %}
-    </section>
+<section class="sidebar-box">
+    <h2>カテゴリ</h2>
+    {% category_list %}
+</section>
 
-    <section class="sidebar-box">
-        <h2>アーカイブ</h2>
-        {% archives %}
-    </section>
+<section class="sidebar-box">
+    <h2>タグ</h2>
+    {% tag_list %}
+</section>
 
-    <section class="sidebar-box">
-        <h2>最新記事</h2>
-        {% recent_posts %}
-    </section>
-</aside>
+<section class="sidebar-box">
+    <h2>アーカイブ</h2>
+    {% archives %}
+</section>
+
+<section class="sidebar-box">
+    <h2>最新記事</h2>
+    {% recent_posts %}
+</section>
