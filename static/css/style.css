@@ -94,6 +94,8 @@ body {
     background: rgba(255, 255, 255, 0.8);
     max-width: 720px;
     width: 100%;
+    border-radius: 6px;
+    padding: 24px;
 }
 
 .list-title {
