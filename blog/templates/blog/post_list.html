@@ -2,13 +2,13 @@
 
 {% block title %}
 {% if page_obj.number > 1 %}
-最新記事 - （ {{ page_obj.number }} ） | 
+{{ list_title }} - （ {{ page_obj.number }} ） | 
 {% endif %}
 {% endblock %}
 
 {% block content %} 
-<h2 class="page-title">最新記事</h2> 
 <div class="post-list">
+    <h2 class="page-title">{{ list_title }}</h2>
     {% for post in posts %} 
         {% include "blog/components/post_card.html" %} 
     {% empty %} 

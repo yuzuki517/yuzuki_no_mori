@@ -16,10 +16,15 @@ def post_detail(request, slug):
 
 class PostListView(ListView):
     model = Post
+    paginate_by = 10
     template_name = "blog/post_list.html"
     context_object_name = "posts"
-    paginate_by = 10
     queryset = Post.objects.order_by("-created_at")
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context ["list_title"] = "最新記事"
+        return context
 
 class CategoryListView(PostListView):
     def get_queryset(self):
@@ -27,9 +32,9 @@ class CategoryListView(PostListView):
         return super().get_queryset().filter(category=self.category)
 
     def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx["current_category"] = self.category
-        return ctx
+        context = super().get_context_data(**kwargs)
+        context["list_title"] = f"カテゴリ：{self.category.name}"
+        return context
 
 class TagListView(PostListView):
     def get_queryset(self):
@@ -37,9 +42,9 @@ class TagListView(PostListView):
         return super().get_queryset().filter(tags__slug=self.tag.slug)
 
     def get_context_data(self, **kwargs):
-        ctx = super().get_context_data(**kwargs)
-        ctx["current_tag"] = self.tag
-        return ctx
+        context = super().get_context_data(**kwargs)
+        context["list_title"] = f"タグ：{self.tag.name}"
+        return context
 
 class ArchiveListView(PostListView):
     def get_queryset(self):
@@ -50,6 +55,11 @@ class ArchiveListView(PostListView):
             created_at__month=month
         )
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list_title"] = f"{self.year}年{self.month}月の記事"
+        return context
+
 class PostSearchView(PostListView):
     def get_queryset(self):
         q = self.request.GET.get("q", "").strip()
@@ -57,4 +67,8 @@ class PostSearchView(PostListView):
             return Post.objects.none()
         qs = super().get_queryset()
         return qs.filter(Q(title__icontains=q) | Q(body__icontains=q)).order_by("-created_at")
-    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["list_title"] = f"「{self.query}」の検索結果"
+        return context
