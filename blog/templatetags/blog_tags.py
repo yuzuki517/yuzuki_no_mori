@@ -21,6 +21,6 @@ def archives(context):
     return {'dates': dates, 'request': context.get('request')}
 
 @register.inclusion_tag('blog/tags/recent_posts.html', takes_context=True)
-def recent_posts(context, num=5):
+def recent_posts(context, num=3):
     posts = Post.objects.order_by('-created_at')[:num]
     return {'recent_posts': posts, 'request': context.get('request')}
