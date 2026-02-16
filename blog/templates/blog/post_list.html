@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% if page_obj.number == 1 %}
-{{ list_title }} | 
-{% endif %}
 {% if page_obj.number > 1 %}
 {{ list_title }} - （ {{ page_obj.number }} ） | 
 {% endif %}
