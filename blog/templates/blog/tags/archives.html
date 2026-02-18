@@ -1,5 +1,10 @@
-<ul>
+<select class="sidebar-select"
+        onchange="if(this.value) location.href=this.value;">
+  <option value="">月を選択</option>
+
   {% for d in dates %}
-    <li><a href="{% url 'blog:archive_posts' d.year d.month %}">{{ d|date:"Y年n月" }}</a></li>
+    <option value="{% url 'blog:archive_posts' d.year d.month %}">
+      {{ d|date:"Y年n月" }}
+    </option>
   {% endfor %}
-</ul>
+</select>
