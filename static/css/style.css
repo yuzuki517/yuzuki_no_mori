@@ -100,12 +100,16 @@ body {
     width: 100%;
 }
 
+.content h2 {
+    font-size: 14px;
+    margin: 0 0 8px;
+}
+
 .content-inner {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);
     border-radius: 6px;
     padding: 24px;
-    margin: 0 0 8px;
 }
 
 .post-list {
