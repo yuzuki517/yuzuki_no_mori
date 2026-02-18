@@ -1,10 +1,12 @@
-<ul>
+<select class="sidebar-select"
+        onchange="if(this.value) location.href=this.value;">
+  <option value="">カテゴリを選択</option>
+
   {% for cat in categories %}
-    <li>
-      <a href="{% url 'blog:category_posts' cat.slug %}">{{ cat.name }}</a>
-      <span class="count">({{ cat.count }})</span>
-    </li>
+    <option value="{% url 'blog:category_posts' cat.slug %}">
+      {{ cat.name }} ({{ cat.count }})
+    </option>
   {% empty %}
-    <li>カテゴリはありません</li>
+    <option value="">カテゴリはありません</option>
   {% endfor %}
-</ul>
+</select>
