@@ -189,20 +189,23 @@ body {
     flex: 1;
     padding: 8px 10px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid #666;
     border-right: none;
     border-radius: 4px 0 0 4px;
     outline: none;
 }
 
 .search-form button {
+    min-width: 24px;
     padding: 0 12px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid #666;
     border-left: none;
     background: #f2f2f2;
     border-radius: 0 4px 4px 0;
     cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .search-form button:hover {
