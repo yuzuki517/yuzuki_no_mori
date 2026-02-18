@@ -189,6 +189,34 @@ body {
     background: #fff;
 }
 
+.tag-cloud {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag-cloud li {
+    margin: 0;
+}
+
+.tag-cloud a {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 13px;
+    background: #f2f2f2;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap;
+}
+
+.tag-cloud a:hover {
+    background: #e0e0e0;
+}
+
 /* ========================= Profile ========================= */
 .profile {
     display: flex;

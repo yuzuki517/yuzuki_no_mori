@@ -12,7 +12,7 @@ def category_list(context):
 
 @register.inclusion_tag('blog/tags/tag_list.html', takes_context=True)
 def tag_list(context):
-    tags = Tag.objects.annotate(count=Count('taggit_taggeditem_items')).order_by('-count')[:50]
+    tags = Tag.objects.annotate(num_posts=Count('taggit_taggeditem_items')).filter(num_posts__gt=0).order_by('-num_posts', 'name')[:50]
     return {'tags': tags, 'request': context.get('request')}
 
 @register.inclusion_tag('blog/tags/archives.html', takes_context=True)
