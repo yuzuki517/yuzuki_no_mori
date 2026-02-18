@@ -16,7 +16,7 @@
 <section class="sidebar-box">
     <form action="{% url 'blog:post_search' %}" method="get" class="search-form">
         <input type="text" name="q" placeholder="キーワード検索" value="{{ request.GET.q|default:'' }}">
-        <button type="submit">検索</button>
+        <button type="submit" class="search-button">検索</button>
     </form>
 </section>
 
