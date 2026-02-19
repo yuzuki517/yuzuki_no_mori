@@ -175,7 +175,7 @@ body {
     width: 280px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 18px;
     flex-shrink: 0;
 }
 
