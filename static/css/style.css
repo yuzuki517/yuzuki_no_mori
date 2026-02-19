@@ -188,7 +188,8 @@ body {
 
 .sidebar-box h2 {
     font-size: 14px;
-    margin: 0 0 8px;
+    margin: 0 0 6px;
+    font-weight: 600;
 }
 
 .search-form, 
