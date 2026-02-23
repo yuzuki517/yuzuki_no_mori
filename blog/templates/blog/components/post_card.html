@@ -1,3 +1,5 @@
+{% load blog_tags %}
+
 <article class="post-card">
     <a href="{{ post.get_absolute_url }}">
         <h2 class="post-title">{{ post.title }}</h2>
@@ -5,7 +7,7 @@
             {{ post.created_at|date:"Y-m-d" }}
         </p>
         <p class="post-excerpt">
-            {{ post.body|truncatechars:100 }}
+            {{ post.body|truncate_markdown:100 }}
         </p>
     </a>
 </article>
