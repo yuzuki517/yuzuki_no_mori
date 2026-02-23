@@ -12,14 +12,14 @@ class ContactView(FormView):
     success_url = reverse_lazy("pages:contact_done")
 
     def form_valid(self, form):
-        send_mail(
-            subject=form.cleaned_data["subject"],
-            message=(f"名前: {form.cleaned_data['name']}\n"
-                     f"メールアドレス: {form.cleaned_data['email']}\n\n"
-                     f"{form.cleaned_data['message']}"),
-            from_email=settings.DEFAULT_FROM_EMAIL,
-            recipient_list=[settings.CONTACT_EMAIL],
-        )
+#        send_mail(
+#            subject=form.cleaned_data["subject"],
+#            message=(f"名前: {form.cleaned_data['name']}\n"
+#                     f"メールアドレス: {form.cleaned_data['email']}\n\n"
+#                     f"{form.cleaned_data['message']}"),
+#            from_email=settings.DEFAULT_FROM_EMAIL,
+#            recipient_list=[settings.CONTACT_EMAIL],
+#        )
         return super().form_valid(form)
 
 class ContactDoneView(TemplateView):
