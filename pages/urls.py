@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import ContactView, ContactDoneView, SiteMapView, PrivacyView
 
+app_name = "pages"
+
 urlpatterns = [
     path("contact/done/", ContactDoneView.as_view(), name="contact_done"),
     path("contact/", ContactView.as_view(), name="contact"),
