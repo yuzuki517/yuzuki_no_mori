@@ -1,18 +1,32 @@
 from django.urls import path
-from . import views
+from .views import (
+    PostListView,
+    PostDetailView,
+    CategoryListView, 
+    TagListView, 
+    ArchiveListView, 
+    PostSearchView,
+)
 
 app_name = "blog"
 
 urlpatterns = [
-    path('post/<slug:slug>/', views.post_detail, name='post_detail'),
-    path('category/<slug:slug>/', views.CategoryListView.as_view(), name='category_posts'), 
-    path('category/<slug:slug>/page/<int:page>/', views.CategoryListView.as_view(), name='category_posts_paginated'), 
-    path('tag/<slug:slug>/', views.TagListView.as_view(), name='tag_posts'), 
-    path('tag/<slug:slug>/page/<int:page>/', views.TagListView.as_view(), name='tag_posts_paginated'), 
-    path('archive/<int:year>/<int:month>/', views.ArchiveListView.as_view(), name='archive_posts'), 
-    path('archive/<int:year>/<int:month>/page/<int:page>/', views.ArchiveListView.as_view(), name='archive_posts_paginated'), 
-    path("page/<int:page>/", views.PostListView.as_view(), name="post_list_paginated"),
-    path('search/', views.PostSearchView.as_view(), name='post_search'),
-    path('search/page/<int:page>/', views.PostSearchView.as_view(), name='post_search_paginated'),
-    path('', views.PostListView.as_view(), name='post_list'), 
+    # 検索
+    path('search/', PostSearchView.as_view(), name='post_search'),
+    path('search/page/<int:page>/', PostSearchView.as_view(), name='post_search_paginated'),
+    # 詳細
+    path('post/<slug:slug>/', PostDetailView.as_view(), name='post_detail'),
+    # カテゴリ
+    path('category/<slug:slug>/page/<int:page>/', CategoryListView.as_view(), name='category_posts_paginated'), 
+    path('category/<slug:slug>/', CategoryListView.as_view(), name='category_posts'), 
+    # タグ
+    path('tag/<slug:slug>/page/<int:page>/', TagListView.as_view(), name='tag_posts_paginated'), 
+    path('tag/<slug:slug>/', TagListView.as_view(), name='tag_posts'), 
+    # アーカイブ
+    path('archive/<int:year>/<int:month>/page/<int:page>/', ArchiveListView.as_view(), name='archive_posts_paginated'), 
+    path('archive/<int:year>/<int:month>/', ArchiveListView.as_view(), name='archive_posts'), 
+    # 一覧ページネーション
+    path("page/<int:page>/", PostListView.as_view(), name="post_list_paginated"),
+    # トップページ
+    path('', PostListView.as_view(), name='post_list'), 
 ]

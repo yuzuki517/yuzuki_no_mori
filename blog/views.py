@@ -6,14 +6,6 @@ from .models import Post, Category
 from taggit.models import Tag
 
 # Create your views here.
-def post_list(request):
-    posts = Post.objects.order_by("-created_at")
-    return render(request, "blog/post_list.html", {"posts": posts})
-
-def post_detail(request, slug):
-    post = get_object_or_404(Post, slug=slug)
-    return render(request, "blog/detail.html", {"post": post})
-
 class PostListView(ListView):
     model = Post
     paginate_by = 10
@@ -25,6 +17,13 @@ class PostListView(ListView):
         context = super().get_context_data(**kwargs)
         context ["list_title"] = "最新記事"
         return context
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = "blog/detail.html"
+    context_object_name = "post"
+    slug_field = "slug"
+    slug_url_kwarg = "slug"
 
 class CategoryListView(PostListView):
     def get_queryset(self):
@@ -65,8 +64,8 @@ class PostSearchView(PostListView):
         self.query = self.request.GET.get("q", "").strip()
         if not self.query:
             return Post.objects.none()
-        qs = super().get_queryset()
-        return qs.filter(Q(title__icontains=self.query)|Q(body__icontains=self.query)).order_by("-created_at")
+        return super().get_queryset().filter(
+            Q(title__icontains=self.query) | Q(body__icontains=self.query)).order_by("-created_at")
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
