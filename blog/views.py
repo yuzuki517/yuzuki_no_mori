@@ -48,11 +48,11 @@ class TagListView(PostListView):
 
 class ArchiveListView(PostListView):
     def get_queryset(self):
-        year = self.kwargs["year"]
-        month = self.kwargs["month"]
+        self.year = self.kwargs["year"]
+        self.month = self.kwargs["month"]
         return super().get_queryset().filter(
-            created_at__year=year,
-            created_at__month=month
+            created_at__year=self.year,
+            created_at__month=self.month
         )
 
     def get_context_data(self, **kwargs):
