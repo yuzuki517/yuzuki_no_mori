@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ContactView, SiteMapView, PrivacyView
+from .views import ContactView, ContactDoneView, SiteMapView, PrivacyView
 
 urlpatterns = [
     path("contact/done/", ContactDoneView.as_view(), name="contact_done"),
