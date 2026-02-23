@@ -1,7 +1,9 @@
 from django import template
 from django.db.models import Count
+from django.utils.html import strip_tags
 from ..models import Post, Category
 from taggit.models import Tag
+import markdown as md
 
 register = template.Library()
 
@@ -24,3 +26,12 @@ def archives(context):
 def recent_posts(context, num=3):
     posts = Post.objects.order_by('-created_at')[:num]
     return {'recent_posts': posts, 'request': context.get('request')}
+
+@register.filter
+def truncate_markdown(value, length=100):
+    if not value:
+        return ""
+    html = md.markdown(value)
+    text = strip_tags(html)
+    length = int(length)
+    return text[:length] + ("…" if len(text) > length else "")
