@@ -118,6 +118,26 @@ body {
     padding: 24px;
 }
 
+.content-inner form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.content-inner form label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.content-inner form input,
+.content-inner form textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
 .post-list {
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(2px);

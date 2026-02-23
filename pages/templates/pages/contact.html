@@ -5,7 +5,9 @@
 {% block content %}
 <div class="content-inner">
     <h1 class="page-title">お問い合わせ</h1>
-
+    <p class="form-lead">
+        ご質問・ご相談などがありましたら、以下のフォームよりお気軽にお問い合わせください。
+    </p>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
