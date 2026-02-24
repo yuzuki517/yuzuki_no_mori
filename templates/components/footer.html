@@ -1,7 +1,12 @@
 <footer class="site-footer">
     <div class="footer-inner">
         <nav class="footer-nav">
-            <a href="{% url 'pages:privacy' %}">プライバシーポリシー</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'pages:contact' %}">お問い合わせ</a></li>
+                <li><a href="{% url 'pages:site_map' %}">サイトマップ</a></li>
+                <li><a href="{% url 'pages:privacy' %}">プライバシーポリシー</a></li>
+            </ul>
         </nav>
         <p>&copy; {% now "Y" %} 柚木の杜</p>
     </div>
