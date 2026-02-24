@@ -149,3 +149,9 @@ STORAGES = {
         "BACKEND": "config.storage.AzureStaticStorage",
     },
 }
+
+# google analytics
+GA_MEASUREMENT_ID = os.getenv("GA_MEASUREMENT_ID")
+TEMPLATES[0]["OPTIONS"]["context_processors"] += [
+    "config.context_processors.ga_settings",
+]
