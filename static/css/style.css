@@ -97,6 +97,9 @@ body {
 /* ========================= Main Content ========================= */
 .content {
     background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border-radius: 6px;
+    padding: 24px;
     max-width: 720px;
     width: 100%;
 }
@@ -110,13 +113,6 @@ body {
 .content h2 {
     font-size: 16px;
     margin: 0 0 8px;
-}
-
-.content-inner {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(2px);
-    border-radius: 6px;
-    padding: 24px;
 }
 
 .content-inner form {
