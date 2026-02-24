@@ -135,12 +135,6 @@ body {
     box-sizing: border-box;
 }
 
-.post-list {
-    backdrop-filter: blur(2px);
-    border-radius: 6px;
-    padding: 24px;
-}
-
 .list-title {
     font-size: 1.2rem;
     margin-bottom: 16px;
