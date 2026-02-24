@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>500 Server Error</title>
-</head>
-<body>
-    <h1>500</h1>
-    <p>サーバーエラーが発生しました。</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}500 Server Error | {% endblock %}
+
+{% block content %}
+<h1>500</h1>
+<p>サーバーエラーが発生しました。</p>
+{% endblock %}
