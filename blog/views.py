@@ -1,12 +1,24 @@
 import markdown
 from django.views.generic import ListView, DetailView
+from django.utils.safestring import mark_safe
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .models import Post, Category
 from taggit.models import Tag
 
 # Create your views here.
-class PostListView(ListView):
+def render_markdown(text):
+    return mark_safe(markdown.markdown(
+        text,
+        extensions=[
+            'markdown.extensions.fenced_code',
+            'markdown.extensions.codehilite',
+            'markdown.extensions.tables',
+            'markdown.extensions.sane_lists',
+        ]
+    ))
+
+class PostListView(ListView):    
     model = Post
     paginate_by = 10
     template_name = "blog/post_list.html"
@@ -16,6 +28,8 @@ class PostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context ["list_title"] = "記事一覧"
+        for post in context["posts"]:
+            post.body_html = render_markdown(post.body)
         return context
 
 class PostDetailView(DetailView):
@@ -24,6 +38,12 @@ class PostDetailView(DetailView):
     context_object_name = "post"
     slug_field = "slug"
     slug_url_kwarg = "slug"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        post = context["post"]
+        post.body_html = render_markdown(post.body)
+        return context
 
 class CategoryListView(PostListView):
     def get_queryset(self):

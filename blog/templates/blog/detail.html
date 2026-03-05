@@ -9,7 +9,7 @@
     <p class="post-meta">{{ post.created_at|date:"Y-m-d" }}</p>
 
     <div class="post-body">
-        {{ post.body|safe }}
+        {{ post.body_html }}
     </div>
 </article>
 {% endblock %}
