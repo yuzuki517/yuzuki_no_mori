@@ -194,6 +194,41 @@ body {
     margin: 0;
 }
 
+.post-body pre {
+    background: #f6f8fa;
+    padding: 12px;
+    border-radius: 6px;
+    overflow-x: auto;
+    font-size: 13px;
+}
+
+.post-body code {
+    background: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+}
+
+.post-body h1 {
+    font-size: 26px;
+    margin: 24px 0 12px;
+}
+
+.post-body h2 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+}
+
+.post-body h3 {
+    font-size: 16px;
+    margin: 16px 0 8px;
+}
+
+.post-body p {
+    margin: 0 0 1em;
+}
+
 .pagination {
     margin-top: 24px;
     text-align: center;
