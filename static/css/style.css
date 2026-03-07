@@ -240,6 +240,29 @@ body {
     padding: 16px;
 }
 
+/* ---- Profile (Sidebar) ---- */ 
+.profile { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    font-size: 14px; 
+} 
+
+.profile-avatar { 
+    width: 96px; 
+    height: 96px; 
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-bottom: 12px; 
+} 
+
+.profile-avatar img { 
+    width: 100%; 
+    height: 100%; 
+    display: block; 
+    object-fit: cover; 
+}
+
 /* ========================= Footer ========================= */
 .site-footer {
     margin-top: 16px;
