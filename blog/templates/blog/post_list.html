@@ -9,7 +9,7 @@
 
 {% block content %} 
 <div class="post-list">
-    <h3 class="page-title">{{ list_title }}</h3>
+    <h3 class="page-title">{{ list_title }}</h3></br>
     {% for post in posts %} 
         {% include "blog/components/post_card.html" %} 
     {% empty %} 
