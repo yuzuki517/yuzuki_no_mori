@@ -132,7 +132,6 @@ body {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 12px;
-    font-size: 12px;
     border: 1px solid #ddd;
     transition: box-shadow 0.2s ease;
 }
@@ -150,7 +149,6 @@ body {
 
 .post-title {
     font-size: 26px;
-    margin: 0 0 4px;
 }
 
 .post-meta {
