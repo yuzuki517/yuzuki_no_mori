@@ -3,27 +3,23 @@
 {% block title %}サイトマップ | {% endblock %}
 
 {% block content %}
-<div class="content-inner">
-    <h1 class="page-title">サイトマップ</h1>
-
-    <section class="page-section">
-        <h2>固定ページ</h2>
-        <ul>
-            <li><a href="{% url 'pages:contact' %}">お問い合わせ</a></li>
-            <li><a href="{% url 'pages:privacy' %}">プライバシーポリシー</a></li>
-            <li><a href="{% url 'pages:site_map' %}">サイトマップ</a></li>
-        </ul>
-    </section>
-
-    <section class="page-section">
-        <h2>ブログ記事 - 最近の記事</h2>
-        <ul>
-            {% for post in posts %}
-                <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-            {% empty %}
-                <li>記事がありません。</li>
-            {% endfor %}
-        </ul>
-    </section>
-</div>
+<h1 class="page-title">サイトマップ</h1>
+<section class="page-section">
+    <h2>固定ページ</h2>
+    <ul>
+        <li><a href="{% url 'pages:contact' %}">お問い合わせ</a></li>
+        <li><a href="{% url 'pages:privacy' %}">プライバシーポリシー</a></li>
+        <li><a href="{% url 'pages:site_map' %}">サイトマップ</a></li>
+    </ul>
+</section>
+<section class="page-section">
+    <h2>ブログ記事 - 最近の記事</h2>
+    <ul>
+        {% for post in posts %}
+            <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+        {% empty %}
+            <li>記事がありません。</li>
+        {% endfor %}
+    </ul>
+</section>
 {% endblock %}

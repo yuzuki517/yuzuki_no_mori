@@ -102,9 +102,13 @@ body {
 
 /* content 内見出し（既存挙動維持） */
 .content h1,
-.content h2,
 .content h3 {
     font-size: 24px;
+    margin: 0 0 8px;
+}
+
+.content h2 {
+    font-size: 20px;
     margin: 0 0 8px;
 }
 
