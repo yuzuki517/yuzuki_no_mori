@@ -92,7 +92,7 @@ body {
 
 /* ========================= Main Content ========================= */
 .content {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(2px);
     border-radius: 6px;
     max-width: 720px;
@@ -234,7 +234,7 @@ body {
 
 /* コード */
 .post-body pre {
-    background: #cfd5db;
+    background: #e9eaeb;
     padding: 12px;
     border-radius: 6px;
     overflow-x: auto;
@@ -264,7 +264,7 @@ body {
 }
 
 .sidebar-box {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 6px;
     padding: 11px;
     margin: 0;
