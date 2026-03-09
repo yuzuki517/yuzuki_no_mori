@@ -156,10 +156,18 @@ body {
     margin-bottom: 0 0 2px 0;
 }
 
+.content .post-card .post-title {
+    margin: 0 0 2px 0;
+}
+
 .post-meta {
     font-size: 12px;
-    color: #888;
+    color: #777;
     margin-bottom: 0 0 4px 0;
+}
+
+.content .post-card .post-meta {
+    margin: 0 0 4px 0;
 }
 
 .post-excerpt {
