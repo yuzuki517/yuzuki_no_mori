@@ -125,6 +125,7 @@ body {
     display: grid;
     margin-top: 16px;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    align-items: stretch;
     gap: 20px;
 }
 
@@ -134,8 +135,6 @@ body {
     padding: 10px 12px;
     border: 1px solid #ddd;
     transition: box-shadow 0.2s ease;
-    display: flex;
-    flex-direction: column;
 }
 
 .post-card:hover {
@@ -143,7 +142,6 @@ body {
 }
 
 .post-card a {
-    flex: 1;
     display: flex;
     flex-direction: column;
     height: 100%;
