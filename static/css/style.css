@@ -228,14 +228,14 @@ body {
     width: 280px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 11px;
     flex-shrink: 0;
 }
 
 .sidebar-box {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 6px;
-    padding: 16px;
+    padding: 11px;
 }
 
 /* ---- Profile (Sidebar) ---- */ 
