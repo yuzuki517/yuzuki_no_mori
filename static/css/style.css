@@ -255,6 +255,12 @@ body {
     margin: 0;
 }
 
+.sidebar-box h2 {
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
 /* ---- Profile (Sidebar) ---- */ 
 .profile { 
     display: flex; 
