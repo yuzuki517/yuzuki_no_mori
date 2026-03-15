@@ -247,6 +247,7 @@ body {
     background: #f0f0f0;
     padding: 2px 4px;
     border-radius: 4px;
+    border: 1px solid #666;
     font-family: Consolas, Monaco, monospace;
     font-size: 13px;
 }
