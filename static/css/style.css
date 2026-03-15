@@ -59,7 +59,7 @@ body {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #222;
 }
 
 .nav-area {
@@ -250,8 +250,8 @@ body {
 }
 
 /* 強調・リンク */
-.post-body strong { color: #222; }
-.post-body em { color: #555; }
+.post-body strong { color: #111; }
+.post-body em { color: #333; }
 .post-body a { color: #0366d6; }
 
 /* ========================= Sidebar ========================= */
