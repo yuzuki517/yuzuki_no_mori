@@ -236,7 +236,7 @@ body {
 /* コード */
 .post-body pre {
     background: #e9eaeb;
-    border: 1px solid #666;
+    border: 1px solid #999;
     padding: 12px;
     border-radius: 6px;
     overflow-x: auto;
